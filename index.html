@@ -1,301 +1,651 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>茜子的委託小屋 | Akane's Tarot & Material</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
-    
-    <!-- ========================================== -->
-    <!-- 🔮 茜子正式委託資料區：已整合所有截圖資訊 -->
-    <!-- ========================================== -->
-    <script>
-        const siteData = {
-            brandName: "茜子的委託小屋",
-            subtitle: "「在數位的荒原中，為您的靈魂尋找一個原型。」",
-            
-            specialties: ["少年 (正太) 少女設定", "色塊類型的上色", "明暗對比明顯的設定、背景色", "花卉、植物系的背景", "氛圍為主的稿件"],
-            
-            commissions: [
-                { 
-                    id: "c1", tag: "Arcana I", icon: "cherry", title: "QQ", price: "底價 NT$ 120起", 
-                    desc: "捕捉靈魂最核心的萌點。",
-                    image: "images/qq.jpg", fallback: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/QQ-2aa83f988dc78023a7b5c2fb7b003525?source=copy_link",
-                    subItems: [
-                        { title: "大頭", price: "NTD 200 / 個", desc: "精緻Q版大頭" },
-                        { title: "對稱果凍大頭", price: "NTD 120 / 張", desc: "對稱晶瑩質感" },
-                        { title: "不對稱果凍大頭", price: "NTD 200 / 張", desc: "具備動態感的角度" }
-                    ]
-                },
-                { 
-                    id: "c2", tag: "Arcana II", icon: "palette", title: "色塊", price: "底價 NT$ 600起", 
-                    desc: "明快色塊風格，充滿個性的視覺表達。",
-                    image: "images/color.jpg", fallback: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/2aa83f988dc780f1b326cdeb3c41db89?source=copy_link",
-                    subItems: [
-                        { title: "色塊 QQ 人", price: "NTD 600~800 / 張", desc: "價格視複雜度浮動" },
-                        { title: "單人立繪", price: "NTD 1000~1400 / 張", desc: "衍生設定/人物 1400 UP" },
-                        { title: "雙人互動", price: "NTD 2000~2800 / 張", desc: "衍生設定/人物雙人 2800 UP" }
-                    ]
-                },
-                { 
-                    id: "c3", tag: "Arcana III", icon: "sparkles", title: "亮晶晶", price: "底價 NT$ 300起", 
-                    desc: "呈現流動的光輝與夢幻氛圍感。", highlight: true,
-                    image: "images/sparkle.jpg", fallback: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/2aa83f988dc78024800feaf4df996560?source=copy_link",
-                    subItems: [
-                        { title: "郵票 - 單人", price: "NTD 300", desc: "可選郵票形狀" },
-                        { title: "郵票 - 雙人同色系", price: "NTD 500", desc: "畫面色調統一對貼" },
-                        { title: "郵票 - 雙人不同色", price: "NTD 550", desc: "獨立色彩渲染" },
-                        { title: "大頭 - 單人", price: "NTD 800", desc: "極致光影渲染" },
-                        { title: "插圖 - 單人", price: "NTD 800", desc: "具備背景氛圍" },
-                        { title: "插圖 - 雙人", price: "NTD 1200", desc: "細緻雙人互動" }
-                    ]
-                },
-                { 
-                    id: "c4", tag: "Arcana IV", icon: "gift", title: "驚喜包插圖", price: "NT$ 800起", 
-                    desc: "純賭博性質，構圖全權交由靈魂導引。",
-                    image: "images/surprise.jpg", fallback: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/2aa83f988dc7800095dde82ae314087c?source=copy_link",
-                    subItems: [
-                        { title: "塗鴉驚喜包 - 單人", price: "NTD 800", desc: "繪師手感為主，有背景" },
-                        { title: "塗鴉驚喜包 - 雙人", price: "NTD 1600", desc: "底價 x 2" },
-                        { title: "插圖包 - 單人(大頭)", price: "NTD 800", desc: "保底大頭範圍" },
-                        { title: "插圖包 - 單人(半身)", price: "NTD 1000~1400", desc: "投遞$1000+保底半身" },
-                        { title: "插圖包 - 單人(全身)", price: "NTD 1500+", desc: "投遞$1500+保底全身" },
-                        { title: "插圖包 - 雙人(大頭)", price: "NTD 2000", desc: "保底大頭範圍" },
-                        { title: "插圖包 - 雙人(半身)", price: "NTD 2400~2900", desc: "投遞$2400+保底半身" },
-                        { title: "插圖包 - 雙人(全身)", price: "NTD 3000+", desc: "投遞$3000+保底全身" }
-                    ]
-                },
-                { 
-                    id: "c5", tag: "Arcana V", icon: "shirt", title: "服裝 & 角色設計", price: "NT$ 200起", 
-                    desc: "從零開始構建您的靈魂外殼。",
-                    image: "images/design.jpg", fallback: "https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/2aa83f988dc780428294eb6bbf3ab4ce?source=copy_link",
-                    subItems: [
-                        { title: "Q版服設", price: "NTD 200 / 套", desc: "不提供買斷，繪師保留權利" },
-                        { title: "簡單Q版角色設計", price: "NTD 300 / 個", desc: "全新角色雛形設計" }
-                    ]
-                },
-                { 
-                    id: "c6", tag: "Arcana VI", icon: "layers", title: "其他品項", price: "NT$ 350起", 
-                    desc: "特殊祈願，請提供詳細需求。",
-                    image: "images/other.jpg", fallback: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800&auto=format&fit=crop",
-                    notionLink: "https://www.notion.so/2aa83f988dc7804985c6c298cfb9ed60?source=copy_link",
-                    subItems: [
-                        { title: "塗鴉頭", price: "NTD 350~500 / 張", desc: "輕鬆速寫風格" },
-                        { title: "客製化立繪", price: "私訊報價", desc: "依複雜度與用途評估" }
-                    ]
-                }
-            ],
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>茜子的委託小屋｜Tarot Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090b19;
+      --bg2: #111633;
+      --glass: rgba(255, 255, 255, 0.075);
+      --glass2: rgba(255, 255, 255, 0.12);
+      --line: rgba(235, 210, 142, 0.38);
+      --gold: #efd58b;
+      --gold2: #b88a45;
+      --text: #fff8e8;
+      --muted: #d8cce9;
+      --blue: #a7d8ff;
+      --violet: #b8a2ff;
+      --rose: #f0a6cf;
+      --shadow: rgba(0, 0, 0, 0.38);
+    }
 
-            process: ["私訊討論內容與願景", "確認排單順序並進入作業", "草稿階段 (3次免費修改)", "完稿確認 (帶浮水印)", "支付委託費用", "交付無浮水印原檔"],
-            notices: [
-                "價格為底價，視設定複雜度調整。",
-                "草稿後修改每次加收 NTD 100。",
-                "商用 × 3；不公開展示 × 1.5。",
-                "不接受無卡或第三方匯款。",
-                "交付帶浮水印成品後三天未回覆將公開尋人。",
-                "默認可公開作品，不需公開請提前告知。"
-            ],
-            formspreeUrl: "https://formspree.io/f/xnjobykj" 
-        };
-    </script>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Noto Serif TC", serif;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(167, 216, 255, 0.22), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(240, 166, 207, 0.18), transparent 32%),
+        radial-gradient(circle at 48% 92%, rgba(184, 162, 255, 0.18), transparent 36%),
+        linear-gradient(145deg, #070815 0%, #101533 48%, #20112a 100%);
+      overflow-x: hidden;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'], serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'] },
-                    colors: { tarot: { dark: '#070913', navy: '#0D0F1F', gold: '#D4AF37', lightGold: '#F3E5AB', purple: '#6B4C9A', wine: '#2D1B22' } }
-                }
-            }
-        }
-    </script>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.8) 0 1px, transparent 1px),
+        radial-gradient(circle, rgba(239,213,139,.75) 0 1px, transparent 1px);
+      background-size: 86px 86px, 137px 137px;
+      background-position: 18px 22px, 64px 80px;
+      opacity: .22;
+    }
 
-    <style>
-        body { background-color: #070913; color: #E2E8F0; -webkit-font-smoothing: antialiased; overflow-x: hidden; background-image: radial-gradient(circle at 10% 20%, rgba(107, 76, 154, 0.2), transparent 40%), radial-gradient(circle at 90% 80%, rgba(45, 27, 34, 0.3), transparent 40%); }
-        .tarot-card { background: rgba(13, 15, 31, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); transition: all 0.4s ease; position: relative; }
-        .tarot-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.5); box-shadow: 0 0 30px rgba(212, 175, 55, 0.1); }
-        .text-gold-gradient { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tab-content { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .stardust { position: absolute; background: white; border-radius: 50%; opacity: 0.3; animation: twinkle var(--d) infinite alternate; pointer-events: none; }
-        @keyframes twinkle { from { opacity: 0.1; } to { opacity: 0.6; } }
-        .nav-btn.active { color: #D4AF37; border-bottom: 2px solid #D4AF37; }
-        .image-gradient-mask { mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%); }
-        @media (max-width: 768px) { .image-gradient-mask { -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); } }
-        .subitem-scroll::-webkit-scrollbar { width: 4px; } .subitem-scroll::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.3); border-radius: 4px; }
-    </style>
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .site {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 22px 0 72px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(9, 11, 25, .62);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 900;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .mark-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #20112a;
+      background: linear-gradient(135deg, #fff4bf, #d79b4f);
+      box-shadow: 0 0 22px rgba(239, 213, 139, .34);
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .92rem;
+      transition: .2s ease;
+    }
+    .nav a:hover { color: var(--text); background: rgba(255,255,255,.08); }
+
+    .hero {
+      position: relative;
+      min-height: 640px;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      box-shadow: 0 26px 80px var(--shadow), inset 0 0 0 1px rgba(255,255,255,.06);
+      backdrop-filter: blur(18px);
+    }
+
+    .intro {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 58px);
+    }
+
+    .intro::after {
+      content: "ⅩⅦ";
+      position: absolute;
+      right: 32px;
+      top: 24px;
+      color: rgba(239,213,139,.16);
+      font-family: Cinzel, serif;
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--gold);
+      font-family: Cinzel, serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .82rem;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: .98;
+      letter-spacing: .08em;
+      text-shadow: 0 0 32px rgba(239,213,139,.22);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: min(620px, 100%);
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .cta-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: .22s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { color: #1e1327; background: linear-gradient(135deg, #fff4bf, #d99b4e 54%, #f0a6cf); }
+    .btn.ghost { color: var(--text); background: rgba(255,255,255,.075); }
+
+    .quick-notes {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .note {
+      min-height: 106px;
+      padding: 16px;
+      border: 1px solid rgba(239,213,139,.24);
+      border-radius: 22px;
+      background: rgba(255,255,255,.055);
+    }
+    .note strong { display: block; margin-bottom: 8px; color: #fff4bf; }
+    .note span { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+
+    .reading-board {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .board-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      position: relative;
+      z-index: 2;
+    }
+    .board-title h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); }
+    .board-title p { margin: 0; color: var(--muted); line-height: 1.7; }
+
+    .table-glow {
+      position: absolute;
+      left: 50%;
+      top: 56%;
+      width: 520px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(239,213,139,.28);
+      border-radius: 50%;
+      box-shadow: 0 0 65px rgba(167,216,255,.15), inset 0 0 70px rgba(239,213,139,.08);
+      opacity: .9;
+    }
+    .table-glow::before, .table-glow::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px dashed rgba(239,213,139,.2);
+      border-radius: 50%;
+    }
+    .table-glow::after { inset: 28%; border-style: solid; }
+
+    .spread {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-content: center;
+    }
+
+    .tarot {
+      min-height: 210px;
+      padding: 14px;
+      border: 1px solid rgba(239,213,139,.44);
+      border-radius: 22px;
+      color: var(--text);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.04)),
+        linear-gradient(160deg, rgba(35,24,57,.9), rgba(13,15,31,.92));
+      box-shadow: 0 18px 46px rgba(0,0,0,.26), inset 0 0 0 5px rgba(239,213,139,.08);
+      cursor: pointer;
+      transition: .25s ease;
+      text-align: left;
+    }
+    .tarot:hover, .tarot.active {
+      transform: translateY(-5px) rotate(-.6deg);
+      border-color: rgba(239,213,139,.85);
+      box-shadow: 0 22px 56px rgba(0,0,0,.34), 0 0 28px rgba(239,213,139,.16), inset 0 0 0 5px rgba(239,213,139,.11);
+    }
+
+    .card-inner {
+      height: 100%;
+      min-height: 182px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 16px;
+      border: 1px solid rgba(239,213,139,.28);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(167,216,255,.2), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+    }
+    .arcana { color: var(--gold); font-family: Cinzel, serif; letter-spacing: .16em; font-size: .72rem; }
+    .symbol { align-self: center; justify-self: center; font-size: 2.7rem; filter: drop-shadow(0 0 12px rgba(239,213,139,.45)); }
+    .tarot-title { display: flex; justify-content: space-between; gap: 8px; align-items: end; }
+    .tarot-title strong { font-size: 1.1rem; }
+    .tarot-title span { color: var(--muted); font-size: .78rem; }
+
+    .reveal {
+      padding: 30px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .selected-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid rgba(239,213,139,.34);
+      border-radius: 24px;
+      background: rgba(255,255,255,.055);
+    }
+    .mini-card {
+      height: 132px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(239,213,139,.55);
+      border-radius: 18px;
+      background: linear-gradient(160deg, rgba(35,24,57,.95), rgba(13,15,31,.95));
+      box-shadow: inset 0 0 0 5px rgba(239,213,139,.08);
+      font-size: 2.5rem;
+    }
+    .selected-card h2 { margin: 0 0 8px; font-size: clamp(2rem, 4vw, 3.2rem); }
+    .selected-card p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .price-chip {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: #1e1327;
+      background: linear-gradient(135deg, #fff4bf, #d99b4e);
+      font-weight: 900;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .detail-list li {
+      padding: 13px 14px;
+      border: 1px solid rgba(239,213,139,.22);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .detail-list b { color: var(--text); }
+
+    .sections { display: grid; gap: 22px; margin-top: 22px; }
+    .section { padding: clamp(24px, 4vw, 40px); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 22px; }
+    .section h2 { margin: 0; font-size: clamp(2rem, 5vw, 4rem); }
+    .section-head p { margin: 0; color: var(--muted); line-height: 1.8; max-width: 520px; }
+
+    .process-grid, .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step, .rule {
+      padding: 18px;
+      border: 1px solid rgba(239,213,139,.24);
+      border-radius: 22px;
+      background: rgba(255,255,255,.055);
+      min-height: 132px;
+    }
+    .num { color: var(--gold); font-family: Cinzel, serif; letter-spacing: .18em; font-size: .8rem; }
+    .step strong, .rule strong { display: block; margin: 10px 0 8px; color: var(--text); font-size: 1.08rem; }
+    .step span, .rule span { color: var(--muted); line-height: 1.8; font-size: .94rem; }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid rgba(239,213,139,.28);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(167,216,255,.1), rgba(240,166,207,.08));
+    }
+    .contact-card p { margin: 8px 0 0; color: var(--muted); line-height: 1.8; }
+
+    .footer {
+      margin-top: 28px;
+      padding: 18px;
+      color: rgba(255,248,232,.68);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; min-height: unset; }
+      .quick-notes, .process-grid, .rules-grid { grid-template-columns: 1fr; }
+      .spread { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .site { width: min(100% - 18px, 1180px); padding-top: 10px; }
+      .topbar { top: 8px; border-radius: 24px; align-items: flex-start; flex-direction: column; }
+      .hero { gap: 14px; }
+      .intro, .reading-board, .reveal, .section { border-radius: 24px; }
+      .spread {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 4px;
+      }
+      .tarot { flex: 0 0 78%; scroll-snap-align: center; min-height: 220px; }
+      .selected-card { grid-template-columns: 1fr; }
+      .mini-card { height: 110px; }
+      .section-head, .contact-card { grid-template-columns: 1fr; display: grid; }
+      .contact-card .btn { width: 100%; }
+    }
+  </style>
 </head>
-<body class="min-h-screen font-sans">
+<body>
+  <div class="site">
+    <header class="topbar">
+      <div class="mark"><span class="mark-icon">✦</span><span>Akane Tarot Atelier</span></div>
+      <nav class="nav" aria-label="網站導覽">
+        <a href="#cards">委託牌組</a>
+        <a href="#process">流程</a>
+        <a href="#rules">注意事項</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </header>
 
-    <!-- 背景星塵 -->
-    <div class="fixed inset-0 pointer-events-none -z-10">
-        <div class="stardust w-1 h-1 top-1/4 left-1/4" style="--d: 3s"></div>
-        <div class="stardust w-1 h-1 top-1/3 left-3/4" style="--d: 5s"></div>
-        <div class="stardust w-1.5 h-1.5 top-2/3 left-1/2" style="--d: 4s"></div>
-    </div>
-
-    <!-- 導覽列 -->
-    <nav class="sticky top-0 z-40 bg-tarot-dark/90 backdrop-blur-md border-b border-tarot-gold/10">
-        <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-tarot-gold rounded flex items-center justify-center"><i data-lucide="moon" class="w-4 h-4 text-tarot-dark"></i></div>
-                <span class="font-serif font-bold text-tarot-lightGold uppercase tracking-tighter">Akane's Lab</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-serif tracking-widest text-gray-400">
-                <button onclick="switchTab('overview')" class="nav-btn hover:text-tarot-gold transition-colors">序章</button>
-                <button onclick="switchTab('pricing')" class="nav-btn hover:text-tarot-gold transition-colors">牌陣</button>
-                <button onclick="switchTab('process')" class="nav-btn hover:text-tarot-gold transition-colors">戒律</button>
-            </div>
-            <button onclick="toggleMobileMenu()" class="md:hidden text-tarot-gold"><i data-lucide="menu"></i></button>
-        </div>
-    </nav>
-
-    <!-- 手機版選單 -->
-    <div id="mobile-menu" class="fixed inset-0 bg-tarot-dark/95 backdrop-blur-md z-50 hidden flex-col items-center justify-center gap-8 text-2xl font-serif opacity-0 transition-opacity">
-        <button onclick="toggleMobileMenu()" class="absolute top-5 right-5"><i data-lucide="x" class="w-8 h-8 text-tarot-gold"></i></button>
-        <button onclick="switchTab('overview'); toggleMobileMenu()" class="text-tarot-gold hover:scale-110 transition-transform">序章：起源</button>
-        <button onclick="switchTab('pricing'); toggleMobileMenu()" class="text-tarot-gold hover:scale-110 transition-transform">牌陣：契約</button>
-        <button onclick="switchTab('process'); toggleMobileMenu()" class="text-tarot-gold hover:scale-110 transition-transform">戒律：規範</button>
-    </div>
-
-    <!-- 主內容區 -->
-    <main class="max-w-6xl mx-auto px-5 py-12">
-        <div class="text-center mb-16">
-            <div class="inline-block p-4 border border-tarot-gold/30 rotate-45 mb-10 transition-transform hover:scale-110"><i data-lucide="sparkles" class="w-8 h-8 text-tarot-gold -rotate-45"></i></div>
-            <h1 id="render-brandName" class="text-4xl md:text-6xl font-serif font-bold text-gold-gradient mb-4"></h1>
-            <p id="render-subtitle" class="text-gray-400 font-serif tracking-widest text-sm md:text-base"></p>
+    <main>
+      <section class="hero">
+        <div class="intro panel">
+          <p class="eyebrow">Commission Reading Room</p>
+          <h1>茜子的<br>委託小屋</h1>
+          <p class="hero-copy">
+            歡迎來到一間介於占卜館與畫室之間的小屋。請從桌上的牌組選擇一張，
+            查看適合你的委託形式：可愛小像、色塊立繪、亮晶晶氛圍插圖，或交給命運的驚喜包。
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#cards">開始抽牌</a>
+            <a class="btn ghost" href="#process">查看委託流程</a>
+          </div>
+          <div class="quick-notes">
+            <div class="note"><strong>接案形式</strong><span>個人／社團／自帶價委託為主，依複雜度與用途調整。</span></div>
+            <div class="note"><strong>世界觀式菜單</strong><span>每個品項以塔羅牌呈現，不再只是普通價目表。</span></div>
+            <div class="note"><strong>創作方向</strong><span>可愛、童話、星空、花卉、氛圍、角色與服裝設計。</span></div>
+          </div>
         </div>
 
-        <!-- 分頁內容由 JS 動態渲染 -->
-        <div id="tab-overview" class="tab-content space-y-12">
-            <div class="tarot-card p-8 md:p-12 rounded-lg text-center relative overflow-hidden">
-                <h2 class="text-2xl font-serif text-tarot-gold mb-6 tracking-widest uppercase">擅長領域</h2>
-                <div id="render-specialties" class="flex flex-wrap justify-center gap-3"></div>
+        <div id="cards" class="reading-board panel">
+          <div class="board-title">
+            <div>
+              <p class="eyebrow">Choose Your Card</p>
+              <h2>委託牌組</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="tarot-card p-8 rounded-lg border-l-4 border-l-tarot-purple"><h3 class="text-lg font-serif text-tarot-lightGold mb-4 uppercase tracking-widest">核心介紹</h3><p id="render-intro" class="text-gray-400 leading-relaxed text-sm">這裡是茜子的數位工作室。我專注於打造具備「靈魂」的虛擬形象與各種數位素材原型。<br><br>透過高階算力的極致頻率，我將您的想像碎片重新編碼，實體化為具備生命力與細節的視覺呈現。</p></div>
-                <div class="tarot-card p-8 rounded-lg border-l-4 border-l-tarot-wine"><h3 class="text-lg font-serif text-tarot-lightGold mb-4 uppercase tracking-widest">好友優惠</h3><p class="text-gray-400 text-sm leading-relaxed">臉書友列享有每 2 個月 1 次的不限品項 <span class="text-tarot-gold font-bold">5 折優惠</span>（須主動提出，僅限當前帳號）。</p></div>
-            </div>
+            <p>點擊牌面，右下方會顯示該品項的解讀。</p>
+          </div>
+          <div class="table-glow"></div>
+          <div class="spread" id="tarotSpread" aria-label="可選擇的委託牌組"></div>
         </div>
+      </section>
 
-        <div id="tab-pricing" class="tab-content hidden space-y-10">
-            <div id="render-commissions" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-            <div class="tarot-card p-8 bg-tarot-wine/10 border-tarot-wine/30"><h3 class="text-xl font-serif text-tarot-pink uppercase tracking-widest mb-4">自帶價 (鈔能力)</h3><p class="text-sm text-gray-400 leading-relaxed font-light">已有底價品項 ➔ 底價 × 1.5 ~ 2<br>尚未定價品項 ➔ 請直接提供您的預算。若無預算詢問恕不回覆。</p></div>
-        </div>
-
-        <div id="tab-process" class="tab-content hidden space-y-8">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6"><h3 class="text-xl font-serif text-tarot-gold uppercase tracking-widest flex items-center gap-2"><i data-lucide="scroll" class="w-5 h-5"></i> 委託流程</h3><div id="render-process" class="space-y-4"></div></div>
-                <div class="space-y-6"><h3 class="text-xl font-serif text-tarot-gold uppercase tracking-widest flex items-center gap-2"><i data-lucide="alert-circle" class="w-5 h-5"></i> 注意事項</h3><div id="render-notices" class="space-y-3"></div></div>
+      <section class="sections">
+        <article class="reveal panel" aria-live="polite">
+          <div class="selected-card">
+            <div class="mini-card" id="selectedSymbol">✦</div>
+            <div>
+              <p class="eyebrow" id="selectedArcana">Arcana 00</p>
+              <h2 id="selectedTitle">請選擇一張牌</h2>
+              <p id="selectedDesc">點擊上方塔羅牌後，這裡會顯示委託品項說明與價格範圍。</p>
             </div>
-        </div>
+          </div>
+          <span class="price-chip" id="selectedPrice">Reading standby</span>
+          <ul class="detail-list" id="selectedDetails"></ul>
+        </article>
+
+        <article id="process" class="section panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Ritual Process</p>
+              <h2>委託流程</h2>
+            </div>
+            <p>把委託流程做成占卜儀式感，但內容仍保持清楚好讀。</p>
+          </div>
+          <div class="process-grid">
+            <div class="step"><span class="num">STEP 01</span><strong>私訊與需求</strong><span>提供角色資料、用途、預算與想要的氛圍。</span></div>
+            <div class="step"><span class="num">STEP 02</span><strong>確認排單</strong><span>確認品項、價格與大致方向後進入排單。</span></div>
+            <div class="step"><span class="num">STEP 03</span><strong>草圖確認</strong><span>草圖階段確認構圖與大方向，依規則修改。</span></div>
+            <div class="step"><span class="num">STEP 04</span><strong>完稿確認</strong><span>完成後提供帶浮水印預覽，確認無誤後收款。</span></div>
+            <div class="step"><span class="num">STEP 05</span><strong>付款交付</strong><span>付款完成後交付無浮水印檔案。</span></div>
+            <div class="step"><span class="num">STEP 06</span><strong>公開展示</strong><span>未特別告知不公開者，預設可作為作品展示。</span></div>
+          </div>
+        </article>
+
+        <article id="rules" class="section panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">House Rules</p>
+              <h2>注意事項</h2>
+            </div>
+            <p>這裡先放清楚版規則，之後可以再改成更正式的委託條款。</p>
+          </div>
+          <div class="rules-grid">
+            <div class="rule"><span class="num">I</span><strong>價格為底價</strong><span>實際金額會依設定、服裝、背景與用途複雜度調整。</span></div>
+            <div class="rule"><span class="num">II</span><strong>草圖後修改</strong><span>草圖確認後再大改，可能依修改量加收費用。</span></div>
+            <div class="rule"><span class="num">III</span><strong>商用與不公開</strong><span>商用、買斷、不公開展示等需求請提前說明。</span></div>
+            <div class="rule"><span class="num">IV</span><strong>無截稿為主</strong><span>目前以無工期委託為主，可詢問進度但不接急件壓力。</span></div>
+            <div class="rule"><span class="num">V</span><strong>先圖後款</strong><span>確認完稿預覽後付款，付款後交付無浮水印版本。</span></div>
+            <div class="rule"><span class="num">VI</span><strong>作者決策權</strong><span>接案與否、畫面調整與品項適配，保留最終判斷權。</span></div>
+          </div>
+        </article>
+
+        <article id="contact" class="section panel">
+          <div class="contact-card">
+            <div>
+              <p class="eyebrow">Contact</p>
+              <h2>準備抽牌了嗎？</h2>
+              <p>帶著角色資料、預算與想要的氛圍來私訊。也可以直接說「想交給你發揮」，由我替這張牌解讀成畫面。</p>
+            </div>
+            <a class="btn primary" href="#cards">回到牌桌</a>
+          </div>
+        </article>
+      </section>
     </main>
 
-    <!-- 預覽彈窗 -->
-    <div id="previewModal" class="fixed inset-0 bg-tarot-dark/95 backdrop-blur-xl z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-500">
-        <div class="tarot-card max-w-5xl w-full relative transform scale-95 transition-transform duration-500 flex flex-col md:flex-row overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.15)]" id="previewContent">
-            <button onclick="closePreview()" class="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-tarot-dark/80 backdrop-blur rounded-full text-tarot-gold hover:rotate-90 transition-transform border border-tarot-gold/30"><i data-lucide="x" class="w-5 h-5"></i></button>
-            <div class="w-full md:w-1/2 h-[200px] md:h-[600px] relative bg-black flex-shrink-0">
-                <img id="previewImage" src="" alt="Preview" onerror="this.onerror=null; this.src=this.dataset.fallback;" class="w-full h-full object-cover image-gradient-mask opacity-90 transition-opacity duration-700">
-                <div class="absolute inset-4 border border-tarot-gold/20 pointer-events-none"></div>
-                <div class="absolute bottom-6 left-6 z-10 bg-tarot-dark/60 p-2 rounded backdrop-blur" id="previewIconWrapper"></div>
-            </div>
-            <div class="w-full md:w-1/2 p-6 md:p-10 flex flex-col relative overflow-y-auto subitem-scroll max-h-[65vh] md:max-h-[600px]">
-                <div id="previewTag" class="text-[10px] font-serif text-tarot-gold/70 tracking-[0.4em] uppercase mb-2"></div>
-                <div class="flex items-center justify-between mb-4">
-                    <h3 id="previewTitle" class="text-3xl md:text-4xl font-serif text-gray-100 tracking-wide"></h3>
-                    <a id="previewNotionBtn" href="#" target="_blank" class="text-tarot-lightGold/60 hover:text-tarot-gold transition-colors text-xs flex items-center gap-1 border border-tarot-gold/20 px-2 py-1 rounded"><i data-lucide="external-link" class="w-3 h-3"></i> Notion</a>
-                </div>
-                <p id="previewDesc" class="text-sm text-gray-400 leading-relaxed font-light mb-8 italic"></p>
-                <div id="previewSubItems" class="space-y-3 flex-grow pb-4"></div>
-            </div>
-        </div>
-    </div>
+    <footer class="footer">© Akane Commission Atelier. Tarot interface prototype.</footer>
+  </div>
 
-    <!-- 表單彈窗 -->
-    <div id="contractModal" class="fixed inset-0 bg-tarot-dark/95 backdrop-blur-xl z-[110] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-500">
-        <div class="tarot-card max-w-lg w-full p-8 md:p-12 relative transform scale-95 transition-transform duration-500" id="contractContent">
-            <button onclick="closeForm()" class="absolute top-6 right-6 text-tarot-gold hover:rotate-90 transition-transform"><i data-lucide="x"></i></button>
-            <h3 class="text-3xl font-serif text-gold-gradient text-center mb-8 tracking-widest">靈魂締約</h3>
-            <form id="commissionForm" method="POST" action="" class="space-y-5">
-                <input type="text" name="name" required placeholder="您的稱呼" class="w-full bg-tarot-navy/50 border border-tarot-gold/30 p-3.5 rounded text-tarot-lightGold outline-none focus:border-tarot-gold font-serif">
-                <input type="email" name="email" required placeholder="聯繫 Email" class="w-full bg-tarot-navy/50 border border-tarot-gold/30 p-3.5 rounded text-tarot-lightGold outline-none focus:border-tarot-gold font-serif">
-                <select name="type" id="form-select" class="w-full bg-tarot-navy border border-tarot-gold/30 p-3.5 rounded text-tarot-lightGold outline-none focus:border-tarot-gold font-serif"></select>
-                <textarea name="message" rows="4" required placeholder="請描述您的願景、需求細節、或附上設定資料連結..." class="w-full bg-tarot-navy/50 border border-tarot-gold/30 p-3.5 rounded text-tarot-lightGold outline-none focus:border-tarot-gold font-serif resize-none"></textarea>
-                <button type="submit" class="w-full bg-tarot-gold text-tarot-dark font-bold py-4 uppercase tracking-[0.3em] hover:bg-tarot-lightGold transition-all">送出締約請求</button>
-            </form>
-        </div>
-    </div>
+  <script>
+    const commissions = [
+      {
+        arcana: 'Arcana I', symbol: '🍒', title: 'QQ 系列', price: 'NT$ 600 起',
+        desc: '適合想要可愛、快速、角色辨識度高的小像委託。',
+        details: [
+          ['推薦用途', '頭貼、社群展示、角色小卡。'],
+          ['可做方向', 'QQ 大頭、果凍感小像、可愛角色表情。'],
+          ['備註', '價格依細緻度與角色複雜度調整。']
+        ]
+      },
+      {
+        arcana: 'Arcana II', symbol: '🎨', title: '色塊系列', price: 'NT$ 1000 起',
+        desc: '明暗對比與大色塊為主，適合角色立繪與雙人互動。',
+        details: [
+          ['單人立繪', '約 NT$ 1000–1400 起，依設定複雜度調整。'],
+          ['雙人互動', '約 NT$ 2000–2800 起，依構圖與互動程度調整。'],
+          ['特色', '畫面乾淨、色彩明確、角色氛圍強。']
+        ]
+      },
+      {
+        arcana: 'Arcana III', symbol: '✦', title: '亮晶晶系列', price: 'NT$ 300 起',
+        desc: '星空、寶石感、藍紫色光影與閃亮氛圍的招牌品項。',
+        details: [
+          ['郵票小圖', '單人約 NT$ 300，雙人同色約 NT$ 500 起。'],
+          ['插圖方向', '星空、花、寶石、玻璃感、夢幻氛圍。'],
+          ['適合對象', '想要漂亮展示圖、CP 小圖、精緻頭像的人。']
+        ]
+      },
+      {
+        arcana: 'Arcana IV', symbol: '🎁', title: '驚喜包插圖', price: 'NT$ 800 起',
+        desc: '把構圖交給我發揮，保留驚喜感與手感的插圖委託。',
+        details: [
+          ['單人驚喜包', '底價 NT$ 800 起，預算越高保底範圍越完整。'],
+          ['雙人驚喜包', '底價 NT$ 2000 起，適合 CP 或關係性委託。'],
+          ['提醒', '驚喜包重點是信任與氛圍，不適合要求非常精準構圖。']
+        ]
+      },
+      {
+        arcana: 'Arcana V', symbol: '🧵', title: '服裝＆角色設計', price: '私訊報價',
+        desc: '從服裝、配色、元素到角色氣質，協助建立可畫的設計。',
+        details: [
+          ['服裝設計', '可依主題、食物、塔羅、花卉、奇幻元素發想。'],
+          ['角色設計', '可做簡易角色草案、Q版服設或完整設定方向。'],
+          ['報價方式', '依設計複雜度、買斷與用途另外評估。']
+        ]
+      },
+      {
+        arcana: 'Arcana VI', symbol: '🌙', title: '其他品項', price: '自帶價 / 私訊',
+        desc: '沒有列出的特殊祈願，可以帶著預算與需求來討論。',
+        details: [
+          ['自帶價', '已有底價品項可依底價加成，未定價品項請提供預算。'],
+          ['適合內容', '小物、展示圖、特殊角色需求、社團用途等。'],
+          ['提醒', '未提供預算或需求不明確時，可能不會優先評估。']
+        ]
+      }
+    ];
 
-    <script>
-        lucide.createIcons();
-        document.getElementById('render-brandName').innerText = siteData.brandName;
-        document.getElementById('render-subtitle').innerText = siteData.subtitle;
-        document.getElementById('commissionForm').action = siteData.formspreeUrl;
+    const spread = document.querySelector('#tarotSpread');
+    const selectedSymbol = document.querySelector('#selectedSymbol');
+    const selectedArcana = document.querySelector('#selectedArcana');
+    const selectedTitle = document.querySelector('#selectedTitle');
+    const selectedDesc = document.querySelector('#selectedDesc');
+    const selectedPrice = document.querySelector('#selectedPrice');
+    const selectedDetails = document.querySelector('#selectedDetails');
 
-        const specCont = document.getElementById('render-specialties');
-        siteData.specialties.forEach(s => { specCont.innerHTML += `<span class="px-4 py-2 bg-tarot-gold/5 border border-tarot-gold/20 rounded-full text-[11px] text-tarot-lightGold tracking-widest font-serif">${s}</span>`; });
+    function renderCards() {
+      spread.innerHTML = commissions.map((item, index) => `
+        <button class="tarot ${index === 0 ? 'active' : ''}" type="button" data-index="${index}" aria-label="查看${item.title}">
+          <span class="card-inner">
+            <span class="arcana">${item.arcana}</span>
+            <span class="symbol">${item.symbol}</span>
+            <span class="tarot-title"><strong>${item.title}</strong><span>${item.price}</span></span>
+          </span>
+        </button>
+      `).join('');
+    }
 
-        const commCont = document.getElementById('render-commissions');
-        const formSelect = document.getElementById('form-select');
-        siteData.commissions.forEach(c => {
-            commCont.innerHTML += `
-                <div class="tarot-card p-8 flex flex-col text-center gap-4 cursor-pointer group hover:-translate-y-2 transition-all duration-300" onclick="openPreview('${c.id}')">
-                    <div class="w-12 h-12 mx-auto bg-tarot-dark border border-tarot-gold/40 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all"><i data-lucide="${c.icon}" class="w-5 h-5 text-tarot-gold"></i></div>
-                    <div class="text-[10px] text-tarot-gold/60 tracking-[0.3em] uppercase opacity-70">${c.tag}</div>
-                    <h3 class="text-xl font-serif text-gray-100 tracking-wide">${c.title}</h3>
-                    <div class="text-tarot-gold font-bold font-serif tracking-widest text-sm uppercase">${c.price}</div>
-                    <div class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-tarot-gold flex items-center justify-center gap-1 uppercase tracking-widest"><i data-lucide="eye" class="w-3 h-3"></i> 展開 ${c.subItems.length} 項牌陣</div>
-                </div>`;
-            let optGroupHtml = `<optgroup label="[ ${c.title} ]" style="background:#070913; color:#D4AF37;">`;
-            c.subItems.forEach(sub => { optGroupHtml += `<option value="${c.title} - ${sub.title}" style="background:#0D0F1F; color:#E2E8F0;">${sub.title} (${sub.price})</option>`; });
-            optGroupHtml += `</optgroup>`;
-            formSelect.innerHTML += optGroupHtml;
-        });
+    function selectCard(index) {
+      const item = commissions[index];
+      document.querySelectorAll('.tarot').forEach((card, cardIndex) => {
+        card.classList.toggle('active', cardIndex === index);
+      });
+      selectedSymbol.textContent = item.symbol;
+      selectedArcana.textContent = item.arcana;
+      selectedTitle.textContent = item.title;
+      selectedDesc.textContent = item.desc;
+      selectedPrice.textContent = item.price;
+      selectedDetails.innerHTML = item.details.map(([title, text]) => `<li><b>${title}</b>｜${text}</li>`).join('');
+    }
 
-        const procCont = document.getElementById('render-process');
-        siteData.process.forEach((p, i) => { procCont.innerHTML += `<div class="flex gap-4 text-sm font-light"><span class="text-tarot-gold font-serif">${i+1}.</span><span class="text-gray-400">${p}</span></div>`; });
-        const noteCont = document.getElementById('render-notices');
-        siteData.notices.forEach(n => { noteCont.innerHTML += `<div class="flex gap-3 text-[13px] text-gray-500 font-light"><i data-lucide="moon" class="w-3.5 h-3.5 text-tarot-wine flex-shrink-0 mt-0.5"></i>${n}</div>`; });
-        lucide.createIcons();
-
-        function switchTab(id) { document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden')); document.getElementById('tab-' + id).classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        function toggleMobileMenu() { const menu = document.getElementById('mobile-menu'); if(menu.classList.contains('hidden')) { menu.classList.remove('hidden'); menu.classList.add('flex'); setTimeout(() => menu.classList.remove('opacity-0'), 10); } else { menu.classList.add('opacity-0'); setTimeout(() => { menu.classList.add('hidden'); menu.classList.remove('flex'); }, 300); } }
-
-        function openPreview(id) {
-            const item = siteData.commissions.find(c => c.id === id);
-            if(!item) return;
-            const imgElement = document.getElementById('previewImage');
-            imgElement.dataset.fallback = item.fallback; imgElement.src = item.image;
-            document.getElementById('previewTag').innerText = item.tag;
-            document.getElementById('previewTitle').innerText = item.title;
-            document.getElementById('previewDesc').innerText = item.desc;
-            const notionBtn = document.getElementById('previewNotionBtn');
-            if(item.notionLink) { notionBtn.href = item.notionLink; notionBtn.style.display = 'inline-flex'; } else { notionBtn.style.display = 'none'; }
-            document.getElementById('previewIconWrapper').innerHTML = `<i data-lucide="${item.icon}" class="w-6 h-6 text-tarot-gold"></i>`;
-            const subItemsContainer = document.getElementById('previewSubItems'); subItemsContainer.innerHTML = '';
-            item.subItems.forEach(sub => {
-                const safeTitle = `${item.title} - ${sub.title}`.replace(/'/g, "\\'");
-                subItemsContainer.innerHTML += `<div class="flex flex-col md:flex-row md:items-center justify-between p-4 border border-tarot-gold/10 rounded bg-white/5 hover:bg-white/10 hover:border-tarot-gold/30 transition-colors gap-3 group/item"><div><h4 class="text-tarot-lightGold font-serif text-sm">${sub.title}</h4><p class="text-[11px] text-gray-500 mt-1">${sub.desc}</p></div><div class="flex items-center justify-between md:flex-col md:items-end gap-2"><div class="text-tarot-gold font-bold text-[13px] tracking-wide">${sub.price}</div><button onclick="proceedToForm('${safeTitle}')" class="text-[9px] uppercase tracking-widest text-white bg-tarot-purple/40 hover:bg-tarot-purple px-3 py-2 rounded transition-colors flex items-center gap-1">締約 <i data-lucide="arrow-right" class="w-3 h-3 group-hover/item:translate-x-1 transition-transform"></i></button></div></div>`;
-            });
-            lucide.createIcons(); 
-            const m = document.getElementById('previewModal'), mc = document.getElementById('previewContent');
-            m.classList.remove('hidden'); m.classList.add('flex'); void m.offsetWidth; m.classList.add('opacity-100'); mc.classList.remove('scale-95');
-        }
-
-        function closePreview() { const m = document.getElementById('previewModal'), mc = document.getElementById('previewContent'); m.classList.remove('opacity-100'); mc.classList.add('scale-95'); setTimeout(() => { m.classList.add('hidden'); m.classList.remove('flex'); }, 500); }
-        function proceedToForm(val) { closePreview(); setTimeout(() => { openForm(val); }, 400); }
-        function openForm(preselect) { const m = document.getElementById('contractModal'), mc = document.getElementById('contractContent'); if(preselect) { const select = document.getElementById('form-select'); for(let i=0; i<select.options.length; i++) { if(select.options[i].value === preselect) { select.selectedIndex = i; break; } } } m.classList.remove('hidden'); m.classList.add('flex'); void m.offsetWidth; m.classList.add('opacity-100'); mc.classList.remove('scale-95'); }
-        function closeForm() { const m = document.getElementById('contractModal'), mc = document.getElementById('contractContent'); m.classList.remove('opacity-100'); mc.classList.add('scale-95'); setTimeout(() => { m.classList.add('hidden'); m.classList.remove('flex'); }, 500); }
-    </script>
+    renderCards();
+    spread.addEventListener('click', (event) => {
+      const card = event.target.closest('.tarot');
+      if (!card) return;
+      selectCard(Number(card.dataset.index));
+    });
+    selectCard(0);
+  </script>
 </body>
 </html>
-
-
