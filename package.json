@@ -1,5 +1,7 @@
 {
+  "version": "2.0.1",
+  "description": "Akane commission tarot atelier static site - redeploy trigger 2026-07-04",
   "scripts": {
-    "build": "echo Static site ready"
+    "build": "echo Static tarot atelier site ready"
   }
 }
