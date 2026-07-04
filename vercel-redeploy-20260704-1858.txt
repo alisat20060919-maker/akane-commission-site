@@ -1,0 +1,3 @@
+Force redeploy for Vercel.
+Target site: akane-commission-site-gamma.vercel.app
+Expected homepage: Tarot Atelier UI, not the old cream button layout.
