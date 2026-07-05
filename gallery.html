@@ -1,1 +1,85 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>畫廊｜茜子的委託小屋</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="tarot-ui.css?v=26"><link rel="stylesheet" href="site-icons.css?v=1"></head><body><div class="wrap"><header class="topbar"><a class="brand" href="index.html"><span>✦</span><span>Back to Cards</span></a><nav class="nav"><a href="queue.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=16Z25-wyz6c3qcbgqGQE-8ARiKqepSoq9&sz=w512">排單表</a><a href="rules.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=19HqxEHikgzFmO6f5NU7mWru0a9E9d8vO&sz=w512">規則</a><a href="index.html">牌桌</a></nav></header><main class="page-hero panel"><img class="page-icon" alt="" src="https://drive.google.com/thumbnail?id=1wBgZFzosUGIrPArNU52Ms8Bfzhfw-bGA&sz=w512"><p class="crumb">Gallery</p><h1 class="page-title">畫廊</h1><p class="lead">作品分類之後會放在這裡，目前先保留可擴充版面。</p><div class="gallery-grid"><div class="sample">QQ</div><div class="sample">色塊</div><div class="sample">亮晶晶</div><div class="sample">驚喜包</div><div class="sample">設計</div><div class="sample">其他</div></div><p style="margin-top:22px"><a class="btn primary" href="index.html">返回牌桌</a></p></main><footer class="footer">Gallery page｜icons connected</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>畫廊｜茜子的委託小屋</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tarot-ui.css?v=26">
+  <link rel="stylesheet" href="site-icons.css?v=1">
+  <link rel="stylesheet" href="gallery-drive.css?v=1">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span>✦</span><span>Back to Cards</span></a>
+      <nav class="nav">
+        <a href="queue.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=16Z25-wyz6c3qcbgqGQE-8ARiKqepSoq9&sz=w512">排單表</a>
+        <a href="rules.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=19HqxEHikgzFmO6f5NU7mWru0a9E9d8vO&sz=w512">規則</a>
+        <a href="index.html">牌桌</a>
+      </nav>
+    </header>
+
+    <main class="page-hero panel">
+      <img class="page-icon" alt="" src="https://drive.google.com/thumbnail?id=1wBgZFzosUGIrPArNU52Ms8Bfzhfw-bGA&sz=w512">
+      <p class="crumb">Gallery</p>
+      <h1 class="page-title">畫廊</h1>
+      <p class="lead">Notion 圖片已搬到雲端，這裡先接上網站展示版。之後要刪、換順序、換分類都可以繼續修。</p>
+      <div class="gallery-tabs" id="galleryTabs"></div>
+      <div id="galleryRoot"></div>
+      <p style="margin-top:22px"><a class="btn primary" href="index.html">返回牌桌</a></p>
+    </main>
+    <footer class="footer">Gallery page｜Drive images connected v1</footer>
+  </div>
+
+<script>
+const folders={
+  qq:'https://drive.google.com/drive/folders/1qRpY2HhqE6MD--y-FeTnpyvTApchizAO',
+  color:'https://drive.google.com/drive/folders/1roPgSFFt6dtKYS0-SWRR0YkC7H2POB1Q',
+  sparkle:'https://drive.google.com/drive/folders/1_6naQLL0FSk8XQqnfxu0lIxvefSoCMmt',
+  illustration:'https://drive.google.com/drive/folders/1EKagy2ccExjlZ6SXkmItWJuoi-yg4jf1',
+  design:'https://drive.google.com/drive/folders/1xOBrCnQLGugTg_1s_j0tP23nlMYCe81z',
+  other:'https://drive.google.com/drive/folders/1vNF4LW6zxVC6iOKaqA5ZPWdQFxyMzvi0'
+};
+const gallery=[
+{key:'qq',title:'QQ',desc:'大頭、果凍 Q 頭、精緻 QQ 人與小型可愛展示。',items:[
+['004-果凍不對稱Q頭','1gxcUZ1AXPiVOI_yqHDIEKJhEzAjjmXwn'],['002-大頭範例','1nVtWNeo0TKptNqywBjRY3keJB-NOggDW'],['019-袋子捏捏','15HidNgdK8KBkkehqPpswpmQhmIFQzMY1'],['006-果凍不對稱Q頭','1MUoeS0-YbcNidFovrawNmur6_DXaxIpT'],['001-大頭範例','148WvO9xzn1flBJWT-TF_BoFfSKvzD7vC'],['011-精緻QQ人','1ZKnW4thWQizrBaAQ0QEn1ZrGoBaHc9ob'],['008-果凍對稱Q頭','1x9EntaL4uTEbbrUCQpRJjEMqJFJb2LKg'],['015-精緻2.5頭身QQ人','1u0v6r5oWME3lnRkq93E3dgZoVhjDQe7-'],['017-蝴蝶結坐坐','1dUG-hZMPWFc3ZrksPrYncIKThBoOffm7'],['013-二頭身QQ人塗鴉有背景','1OoaQINagS_YM_wm2NYa6_lJvdVVG5bof'],['009-果凍對稱Q頭','1cf0OCaYYKqt4laWNeF9GpdZ8yKnZ0o-h'],['012-精緻QQ人','1UVQ5_vGy5pHj8rKKHV02rsq6BhYMh1o-'],['003-果凍不對稱Q頭','17ki3cc8Lu-5IrWm5L74_1kVUjpRmP8on'],['010-精緻QQ人','1p7gdb1as4XFpiADtHc7YzuwOuSKfWEVq'],['016-蝴蝶結坐坐','1tSCDzA9cafdiQZ13pWD2Kt-yYOngLsUl'],['005-果凍不對稱Q頭','16zo6lWZ6DHRgM0VKCDOwZE6JcAEb2X_8'],['018-袋子捏捏','13zS1gdgpQa3PivqYcXvtefKRE5vCp40F']
+]},
+{key:'color',title:'色塊',desc:'立繪、色塊 QQ 人、雙人互動等色塊系列展示。',items:[
+['004-立繪','1-ph2HphQI0dhRrwkDBqatnS6lXO7TEVE'],['011-雙人互動','13-QttTr4B0UlR06QHtXdk7fll57dE5Ys'],['002-立繪','1KTOUVrWVTvjCXjb6Z_EQqEivw-2wRsX8'],['007-色塊QQ人','1XzFkSexg66XJaHhfHkQ326pgxJBm0Cdt'],['012-雙人互動','1OVANULvI3yM2nvNVyYLflhC28zMJnfkz'],['001-立繪','1xMHxsVgsaLYYqHsw4xbj3e-yCDjNXA1L'],['009-色塊QQ人','1p9r0OM4rn7lu8vDvaQzDmFRWNzM2Uuzu'],['006-立繪','1HI08b2IKNQIx4pm_3hv59qzwTWo-OIjM'],['003-立繪','1d3SOYIgqFPVOTOva7Yu3rQJr8N_lnKTn'],['005-立繪','1hwXD1ekWALhQUBwY29hnTPLcjbYMIQaD'],['008-色塊QQ人','17fGr2mcng4VJoVE7Hhe8zR5B0OHU3iXV'],['013-雙人互動','1DcjxMNw-ZQkRJLoOBrR2Hbox1YIhniev']
+]},
+{key:'sparkle',title:'亮晶晶',desc:'郵票、票根、唱片、小軟糖與亮晶晶氛圍展示。',items:[
+['015-郵票對貼','118naethFaXRqgy3lIT6byLpjg29js-CO'],['004-大頭','1zLVcc94LlsJNZMiT0wW32DHxjUoYMJ21'],['001-唱片','1J92nLuEKAsSjn0cTLavjyhE1VXxsit4t'],['011-組合頁','1FywAhVIXB2kt5ryddypWJrPqAtziD_IU'],['006-小軟糖','1bva1YIR4yGUe9ePRSjJXt-Svv599kjv_'],['003-單人插圖','1qajvJgl7b7pUHVh5uS0dYmrUjlu4yCbp'],['009-票根','1nctSyn3FMwU8qJ2DzjXIoUrxrdr1Ntk9'],['018-雙人插圖','1LRiJCKf6_YvRUnYG7o_cGF448WETJe1H'],['002-單人插圖','1WfOzS9Do3VEkedDPvhfWKc_pQdFxiJvd'],['012-郵票對貼','1fYKdP22Y8yrDgIaGbmGflbiJoDw6GCtF'],['005-大頭','19yBpTbX3Jx-fVaKaD-N23MIUh687Ckkm'],['014-郵票對貼','1tcWCG4_Zef90dbPJcf3dRAl9qE1wAjUz'],['017-雙人插圖','1fY6yLFzKzuYxueO0g0ZJldz8WBlAyl5l'],['007-票根','10WJX77Nr_jQR3ME1J3t7zmOrL2Fr6b7b'],['013-郵票對貼','1fSX0yVPrVBFsOZ7pm3LkCbpijlfuD3vw'],['010-票根','19b3LpVPPCqtrOJrn9h5Ey_RI59K8crqp'],['016-郵票對貼委託時可選形狀如圖','1tqYAByPyNsaowEYuejGUDoIymQsLij32']
+]},
+{key:'illustration',title:'插圖',desc:'單人插圖、雙人插圖、塗鴉驚喜包與三格驚喜包。',items:[
+['001-三格驚喜包','1_-u87qDOGVooIqUIq0Q6Pe-hAUANnduY'],['017-雙人插圖','13X_ah2_uwlUrvO-iHOCb1jsytYmWi8iG'],['007-單人插圖','1t5Qo39LZMIuJG9tVvVuDlSsxa3a6Q0qU'],['003-單人插圖','1bxF2V5Mh8gq_VWfrzz4vQcD025pKetgp'],['013-塗鴉驚喜包','1sZ3MnaB572PGPWREEw4N4ae0lByxU7Zu'],['005-單人插圖','1YSHUIycTjxvLas176r_qGpUo8tgaLoZG'],['012-塗鴉驚喜包','1eL-2YA4Z8oGWNPfUIS7rXMqlsnG7OOrU'],['014-塗鴉驚喜包','1YsK-m2MmvF3ZL9gTKw7cvhCa5S5Oyl3m'],['010-塗鴉驚喜包','1sxMYPDvSQQEjO90KhAGJHO2GzQqojyoV'],['016-塗鴉驚喜包','1MdEVwEl-9oIv8xZXPW0ecuZYVCii0UdP'],['011-塗鴉驚喜包','14MkJILEjspXhgwJ9cX5YAB8_njIhm5tT'],['002-單人插圖','1fSk90gXakGRYHxYUaCDT026oQgP0VGRq'],['006-單人插圖','18iH31Yf_abOFnUKIYYU361icTeNHbaSt'],['004-單人插圖','1c9vVI5LGsPRcCamf_WoVCFhdwRKyY6ey'],['018-雙人插圖','1wQDuHRn4Tmymy26jF4ZvDyuplt3NceZb'],['015-塗鴉驚喜包','1IB48Vnc69_37fsI0rGbvTjYRmEYrwLiP'],['019-雙人插圖','1QT1Qe-frYE1k7r7mF5HRu567GH0qul6e']
+]},
+{key:'design',title:'服裝角色',desc:'服裝設計、角色設計、小動物訂製與設計類展示。',items:[
+['019-色塊服裝設計','16WBRdWa7WSXH_8fN62CPwzs0udVtxa2N'],['017-色塊服裝設計','1My9GZSAVj64LtWsWHXk4OH0lsst3q_po'],['005-小動物訂製','1VnXWMeMxnCB240C7__jFYe1vXRwLEU26'],['004-小動物訂製','1EGqM4eJaX5mcvnUnSURB6-_VDtqHws5v'],['015-色塊服裝設計','1pw5nz3jKvHqKFo_fmIsqLg2ztUA9h1Eq'],['008-色塊服裝設計','1JbB7OeeCJVKwOGz0wl8MdATDbAvRA5zY'],['011-色塊服裝設計','1R4NBnexQyqfGCaT_y0dzUbcLpmQ_UcVa'],['013-色塊服裝設計','1vjd-U9Q9b6CxI4Pv80fZ8pxh6qq0Zx16'],['007-小動物訂製','1Fs6dvYc_ZQ5jRSKY3ybkIsmVAukiHpUf'],['002-小動物訂製','11Ol7FU1YNc66olF2lhFP6DrX9mSvlYJI'],['018-色塊服裝設計','1zU6lBQy99ZFegIhchnWaa15qP2PQkorz'],['016-色塊服裝設計','1mmzzhgiiCOEs8d52UedCTZXwA3rovD0f'],['003-小動物訂製','1MyaOb04CjR3FJ49CgsYk7MhKmr7ZVYpk'],['010-色塊服裝設計','1x7Z1gxhg-UADD0YDyEyQu_bDyZHsC-LR'],['020-色塊服裝設計','1Bvc8o_5B8Ju4emJIv28c7c7me6hjkizJ'],['014-色塊服裝設計','1Fb_jhJo2ByMFAp7DtIojMfBx10LCCudY'],['012-色塊服裝設計','1XBfxcMgpfcEWDEmu2js4gzobV4-oJMKE']
+]},
+{key:'other',title:'其他',desc:'小物、武器、瓶子、眼睛、食物、塗鴉與其他延伸委託展示。',items:[
+['001-包漿塗鴉','19M-2vdrhEgt5VrBp9HAb0RxaBdzdb-oT'],['017-餅乾','1KEkDWgBRiMFKLCkIWZAXqFn1siG9__Ku'],['008-小物武器','15EqNDIWwta7oWbNveUw_CM1JmNKYv0QQ'],['011-小瓶子','1S1uAB_2-f9P_CBhXN7D4vyfr3_L-XMOK'],['003-半身塗鴉','1Wowyuyjqc1Csjy7Hqp85RlSmAb7my1k2'],['005-塗鴉頭','1pE5w8uCu9E3lSB8kPp8RhlO-dFCFxhVF'],['012-眼睛','1JVToZdzTD_GhWdbVBk6s8qaV-b-03DVb'],['014-立繪','1LB9qikrz4B81WcQGkmSC3YAQ_BhAnyB-'],['004-可麗餅','1RtG2Xxyn3oUVEFZOhG82ypkAohB_Gcr8'],['010-小物武器','1v34GkcuI6K_CiGrDURETEsHihNorXVZb'],['019-餅乾','1fBGc_WcIxTkZZUgGtI7gZ_xW3lZFJ3SG'],['009-小物武器','1rvsVlDxQU56LAZtFKrEbZWCVtQ8SY4_7'],['015-證件照','16_DcKjobzWTrd2-0LeLTIWbKpJ9rB36Y'],['007-小物武器','1m2XeyUz-UWIuacf1iuTmVTxHkhZ357YP'],['013-立繪','1p_Odjcwgn5ERZgHJ7FZluylN0lkQn7Ht'],['006-塗鴉頭','1_UgqpcyZ5ueC_DB64mMOWyaVHfzvq5Uu'],['002-包漿塗鴉','1gxFNK8u5KEmNzz2948IFJSbSJ-p-lRK_']
+]}
+];
+const tabs=document.getElementById('galleryTabs');
+const root=document.getElementById('galleryRoot');
+function thumb(id){return 'https://drive.google.com/thumbnail?id='+id+'&sz=w1000'}
+function view(id){return 'https://drive.google.com/file/d/'+id+'/view?usp=drivesdk'}
+gallery.forEach(section=>{
+  const tab=document.createElement('a'); tab.href='#'+section.key; tab.textContent=section.title; tabs.appendChild(tab);
+  const sec=document.createElement('section'); sec.className='gallery-section'; sec.id=section.key;
+  sec.innerHTML='<div class="gallery-head"><div><h2>'+section.title+'</h2><p>'+section.desc+'</p></div><a class="folder-link" href="'+folders[section.key]+'" target="_blank" rel="noopener">雲端資料夾</a></div>';
+  const grid=document.createElement('div'); grid.className='art-grid';
+  section.items.forEach(item=>{
+    const a=document.createElement('a'); a.className='art-card'; a.href=view(item[1]); a.target='_blank'; a.rel='noopener';
+    const img=document.createElement('img'); img.loading='lazy'; img.alt=item[0]; img.src=thumb(item[1]);
+    const span=document.createElement('span'); span.textContent=item[0];
+    a.append(img,span); grid.appendChild(a);
+  });
+  sec.appendChild(grid); root.appendChild(sec);
+});
+</script>
+</body>
+</html>
