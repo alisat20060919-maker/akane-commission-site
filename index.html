@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="tarot-ui.css?v=26" />
+  <link rel="stylesheet" href="site-icons.css?v=1" />
   <link rel="stylesheet" href="card-back-image.css?v=6" />
 </head>
 <body>
@@ -15,9 +16,9 @@
     <header class="topbar">
       <a class="brand" href="index.html"><span>✦</span><span>Akane Tarot Atelier</span></a>
       <nav class="nav" aria-label="網站導覽">
-        <a href="queue.html">排單表</a>
-        <a href="gallery.html">畫廊</a>
-        <a href="rules.html">委託規則</a>
+        <a href="queue.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=16Z25-wyz6c3qcbgqGQE-8ARiKqepSoq9&sz=w512">排單表</a>
+        <a href="gallery.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=1wBgZFzosUGIrPArNU52Ms8Bfzhfw-bGA&sz=w512">畫廊</a>
+        <a href="rules.html"><img class="nav-icon" alt="" src="https://drive.google.com/thumbnail?id=19HqxEHikgzFmO6f5NU7mWru0a9E9d8vO&sz=w512">委託規則</a>
       </nav>
     </header>
 
@@ -28,23 +29,29 @@
         <div class="ornament">✧ —— ✦ —— ✧</div>
         <h1>茜子的委託小屋</h1>
         <p class="subtitle">塔羅師將牌背攤開，請選擇一張委託牌。</p>
+        <div class="icon-dock" aria-label="快速導覽">
+          <a class="icon-link" href="queue.html"><img alt="" src="https://drive.google.com/thumbnail?id=16Z25-wyz6c3qcbgqGQE-8ARiKqepSoq9&sz=w512"><span>排單表</span></a>
+          <a class="icon-link" href="gallery.html"><img alt="" src="https://drive.google.com/thumbnail?id=1wBgZFzosUGIrPArNU52Ms8Bfzhfw-bGA&sz=w512"><span>畫廊</span></a>
+          <a class="icon-link" href="rules.html"><img alt="" src="https://drive.google.com/thumbnail?id=19HqxEHikgzFmO6f5NU7mWru0a9E9d8vO&sz=w512"><span>規則</span></a>
+        </div>
 
         <section class="selector-panel">
           <button class="fan-arrow fan-prev" type="button" aria-label="上一張">◁</button>
           <div class="fan-stage" id="fanStage">
             <div class="fan-inner">
-              <button class="tarot-card active" data-index="0" data-title="QQ 系列" data-desc="可愛小像、頭貼、表情與小型展示圖。" data-link="qq.html" style="--x:45px;--y:20px;--r:12deg"><span class="card-back"><span class="back-star">✦</span></span></button>
-              <button class="tarot-card" data-index="1" data-title="色塊系列" data-desc="單人立繪、雙人互動、角色氛圍展示。" data-link="color.html" style="--x:165px;--y:50px;--r:7deg"><span class="card-back"><span class="back-star">✦</span></span></button>
-              <button class="tarot-card" data-index="2" data-title="亮晶晶系列" data-desc="星空、寶石、玻璃感、閃亮氛圍。" data-link="sparkle.html" style="--x:285px;--y:78px;--r:2deg"><span class="card-back"><span class="back-star">✦</span></span></button>
-              <button class="tarot-card" data-index="3" data-title="驚喜包插圖" data-desc="構圖與畫面交給我發揮，保留抽牌般的驚喜感。" data-link="surprise.html" style="--x:405px;--y:78px;--r:-2deg"><span class="card-back"><span class="back-star">✦</span></span></button>
-              <button class="tarot-card" data-index="4" data-title="服裝＆角色設計" data-desc="服裝、配色、主題元素與簡易角色設計。" data-link="design.html" style="--x:525px;--y:50px;--r:-7deg"><span class="card-back"><span class="back-star">✦</span></span></button>
-              <button class="tarot-card" data-index="5" data-title="其他品項" data-desc="其他延伸委託、自帶價、特殊需求。" data-link="other.html" style="--x:645px;--y:20px;--r:-12deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card active" data-index="0" data-title="QQ 系列" data-icon="https://drive.google.com/thumbnail?id=1FVa6DA_W0mtT3Ps27w2zghVd7m6PygCX&sz=w512" data-desc="可愛小像、頭貼、表情與小型展示圖。" data-link="qq.html" style="--x:45px;--y:20px;--r:12deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card" data-index="1" data-title="色塊系列" data-icon="https://drive.google.com/thumbnail?id=1wBgZFzosUGIrPArNU52Ms8Bfzhfw-bGA&sz=w512" data-desc="單人立繪、雙人互動、角色氛圍展示。" data-link="color.html" style="--x:165px;--y:50px;--r:7deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card" data-index="2" data-title="亮晶晶系列" data-icon="https://drive.google.com/thumbnail?id=1hSz25pGcCJ_Whb36mPxpCqheNTuwfUJE&sz=w512" data-desc="星空、寶石、玻璃感、閃亮氛圍。" data-link="sparkle.html" style="--x:285px;--y:78px;--r:2deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card" data-index="3" data-title="驚喜包插圖" data-icon="https://drive.google.com/thumbnail?id=1FVa6DA_W0mtT3Ps27w2zghVd7m6PygCX&sz=w512" data-desc="構圖與畫面交給我發揮，保留抽牌般的驚喜感。" data-link="surprise.html" style="--x:405px;--y:78px;--r:-2deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card" data-index="4" data-title="服裝＆角色設計" data-icon="https://drive.google.com/thumbnail?id=1pa03wFHsjfNDu0Us3uHFskHW01-odf2P&sz=w512" data-desc="服裝、配色、主題元素與簡易角色設計。" data-link="design.html" style="--x:525px;--y:50px;--r:-7deg"><span class="card-back"><span class="back-star">✦</span></span></button>
+              <button class="tarot-card" data-index="5" data-title="其他品項" data-icon="https://drive.google.com/thumbnail?id=1k1BKlLlGwtziMYU8xkL2UtO5wX62Lnng&sz=w512" data-desc="其他延伸委託、自帶價、特殊需求。" data-link="other.html" style="--x:645px;--y:20px;--r:-12deg"><span class="card-back"><span class="back-star">✦</span></span></button>
             </div>
           </div>
           <button class="fan-arrow fan-next" type="button" aria-label="下一張">▷</button>
 
           <div class="choice-panel">
             <p class="choice-label">SELECTED CARD</p>
+            <img class="choice-icon" id="choiceIcon" alt="" src="https://drive.google.com/thumbnail?id=1FVa6DA_W0mtT3Ps27w2zghVd7m6PygCX&sz=w512">
             <h2 id="choiceTitle">QQ 系列</h2>
             <p id="choiceDesc">可愛小像、頭貼、表情與小型展示圖。</p>
             <a class="choice-btn" id="choiceLink" href="qq.html">查看此品項</a>
@@ -52,7 +59,7 @@
         </section>
       </section>
     </main>
-    <footer class="footer">© Akane Commission Atelier｜Google Drive alternate tarot back v6</footer>
+    <footer class="footer">© Akane Commission Atelier｜icons connected v1</footer>
   </div>
 
   <script>
@@ -60,6 +67,7 @@
     const titleEl=document.getElementById('choiceTitle');
     const descEl=document.getElementById('choiceDesc');
     const linkEl=document.getElementById('choiceLink');
+    const iconEl=document.getElementById('choiceIcon');
     const fanStage=document.getElementById('fanStage');
     let activeIndex=0;
     function selectCard(index,scrollCard=true){
@@ -69,6 +77,7 @@
       titleEl.textContent=card.dataset.title;
       descEl.textContent=card.dataset.desc;
       linkEl.href=card.dataset.link;
+      iconEl.src=card.dataset.icon;
       if(scrollCard)card.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
     }
     cards.forEach((card,index)=>card.addEventListener('click',()=>selectCard(index,true)));
