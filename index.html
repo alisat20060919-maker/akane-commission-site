@@ -33,25 +33,26 @@
             <button class="fan-arrow fan-prev" type="button">◁</button>
             <div class="fan-scroll" id="fanScroll">
               <div class="fan-layer">
-                <svg class="fan-art" viewBox="0 0 1120 300">
-                  <path class="fan-base" d="M68 92 C210 22 342 112 500 126 C620 137 730 74 846 54 C944 38 1016 58 1062 94 L1000 215 C760 282 368 282 104 214 Z" />
-                  <path class="fan-glow" d="M95 108 C250 63 372 128 505 137 C620 145 724 94 836 78 C924 65 982 75 1030 104 L982 190 C742 240 382 240 132 190 Z" />
-                  <path class="fan-top" d="M68 92 C210 22 342 112 500 126 C620 137 730 74 846 54 C944 38 1016 58 1062 94" />
-                  <path class="fan-bottom" d="M104 214 C368 282 760 282 1000 215" />
+                <svg class="fan-art" viewBox="0 0 1120 380">
+                  <path class="fan-base" d="M70 78 C190 10 330 86 458 122 C558 150 642 150 742 122 C870 86 1008 10 1050 78 L990 308 C770 360 350 360 130 308 Z" />
+                  <path class="fan-glow" d="M105 104 C240 62 348 122 468 150 C560 172 640 172 732 150 C852 122 970 62 1015 104 L960 270 C740 320 380 320 160 270 Z" />
+                  <path class="fan-top" d="M70 78 C190 10 330 86 458 122 C558 150 642 150 742 122 C870 86 1008 10 1050 78" />
+                  <path class="fan-bottom" d="M130 308 C350 360 770 360 990 308" />
                   <g class="fan-lines">
-                    <path d="M220 67 L250 248" />
-                    <path d="M370 110 L390 270" />
-                    <path d="M520 128 L525 282" />
-                    <path d="M672 112 L660 279" />
-                    <path d="M822 60 L792 252" />
+                    <path d="M210 48 L250 334" />
+                    <path d="M365 96 L390 358" />
+                    <path d="M520 137 L525 370" />
+                    <path d="M675 137 L658 370" />
+                    <path d="M830 96 L788 358" />
+                    <path d="M968 54 L920 330" />
                   </g>
                 </svg>
-                <button class="fan-choice active" style="--x:88px;--y:122px" type="button" data-index="0"><span>✦</span></button>
-                <button class="fan-choice" style="--x:244px;--y:138px" type="button" data-index="1"><span>✧</span></button>
-                <button class="fan-choice" style="--x:404px;--y:150px" type="button" data-index="2"><span>☾</span></button>
-                <button class="fan-choice" style="--x:566px;--y:150px" type="button" data-index="3"><span>✦</span></button>
-                <button class="fan-choice" style="--x:730px;--y:134px" type="button" data-index="4"><span>✧</span></button>
-                <button class="fan-choice" style="--x:892px;--y:118px" type="button" data-index="5"><span>☽</span></button>
+                <button class="fan-choice active" style="--x:145px;--y:196px" type="button" data-index="0"><span>✦</span></button>
+                <button class="fan-choice" style="--x:300px;--y:226px" type="button" data-index="1"><span>✧</span></button>
+                <button class="fan-choice" style="--x:465px;--y:252px" type="button" data-index="2"><span>☾</span></button>
+                <button class="fan-choice" style="--x:630px;--y:252px" type="button" data-index="3"><span>✦</span></button>
+                <button class="fan-choice" style="--x:795px;--y:226px" type="button" data-index="4"><span>✧</span></button>
+                <button class="fan-choice" style="--x:950px;--y:196px" type="button" data-index="5"><span>☽</span></button>
               </div>
             </div>
             <button class="fan-arrow fan-next" type="button">▷</button>
@@ -72,7 +73,7 @@
         </div>
       </section>
     </main>
-    <footer class="footer">© Akane Commission Atelier｜scrollable fan selector</footer>
+    <footer class="footer">© Akane Commission Atelier｜scrollable fan selector v2</footer>
   </div>
 
   <script>
@@ -84,7 +85,6 @@
       ['服裝＆角色設計','服裝、配色、主題元素與角色設計。','design.html'],
       ['其他品項','其他延伸委託與自帶價討論。','other.html']
     ];
-    const fanScroll = document.querySelector('#fanScroll');
     const choices = [...document.querySelectorAll('.fan-choice')];
     const title = document.querySelector('#choiceTitle');
     const desc = document.querySelector('#choiceDesc');
