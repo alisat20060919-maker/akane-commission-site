@@ -26,32 +26,80 @@
         <div class="moon">☾</div>
         <div class="ornament">✧ —— ✦ —— ✧</div>
         <h1>茜子的委託小屋</h1>
-        <p class="subtitle">滑動倒扇形牌陣，選擇一張委託牌。</p>
+        <p class="subtitle">請在倒扇形牌陣中選擇一張委託牌。</p>
 
         <section class="game-select panel" aria-label="委託品項選擇畫面">
           <div class="select-stage">
-            <div class="fan-viewport">
-              <div class="fan-track">
-                <button class="tarot-card active" type="button" style="--x:32px;--y:28px;--r:-10deg" data-title="QQ 系列" data-desc="可愛小像、頭貼、表情與小型展示圖。" data-link="qq.html" aria-label="選擇 QQ 系列">
-                  <span class="card-face"><span class="card-border"><span class="arcana">I</span><span class="symbol">🍒</span></span></span>
-                </button>
-                <button class="tarot-card" type="button" style="--x:244px;--y:58px;--r:-6deg" data-title="色塊系列" data-desc="單人立繪、雙人互動、角色氛圍展示。" data-link="color.html" aria-label="選擇 色塊系列">
-                  <span class="card-face"><span class="card-border"><span class="arcana">II</span><span class="symbol">🎨</span></span></span>
-                </button>
-                <button class="tarot-card" type="button" style="--x:456px;--y:82px;--r:-2deg" data-title="亮晶晶系列" data-desc="星空、寶石、玻璃感、藍紫色閃亮氛圍。" data-link="sparkle.html" aria-label="選擇 亮晶晶系列">
-                  <span class="card-face"><span class="card-border"><span class="arcana">III</span><span class="symbol">✦</span></span></span>
-                </button>
-                <button class="tarot-card" type="button" style="--x:668px;--y:82px;--r:2deg" data-title="驚喜包插圖" data-desc="構圖與畫面交給我發揮，保留抽牌般的驚喜感。" data-link="surprise.html" aria-label="選擇 驚喜包插圖">
-                  <span class="card-face"><span class="card-border"><span class="arcana">IV</span><span class="symbol">🎁</span></span></span>
-                </button>
-                <button class="tarot-card" type="button" style="--x:880px;--y:58px;--r:6deg" data-title="服裝＆角色設計" data-desc="服裝、配色、主題元素與簡易角色設計。" data-link="design.html" aria-label="選擇 服裝與角色設計">
-                  <span class="card-face"><span class="card-border"><span class="arcana">V</span><span class="symbol">🧵</span></span></span>
-                </button>
-                <button class="tarot-card" type="button" style="--x:1092px;--y:28px;--r:10deg" data-title="其他品項" data-desc="自帶價、特殊需求、小物或其他延伸委託。" data-link="other.html" aria-label="選擇 其他品項">
-                  <span class="card-face"><span class="card-border"><span class="arcana">VI</span><span class="symbol">🌙</span></span></span>
-                </button>
-              </div>
-            </div>
+            <button class="fan-arrow fan-prev" type="button" aria-label="上一張牌">◁</button>
+
+            <svg class="fan-svg" viewBox="0 0 1000 430" role="img" aria-label="倒扇形塔羅牌陣">
+              <defs>
+                <radialGradient id="fanGlow" cx="50%" cy="45%" r="65%">
+                  <stop offset="0%" stop-color="#fff8e8" stop-opacity="0.30" />
+                  <stop offset="42%" stop-color="#9fd9ff" stop-opacity="0.14" />
+                  <stop offset="100%" stop-color="#0d1430" stop-opacity="0.05" />
+                </radialGradient>
+                <linearGradient id="fanFill" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1a2345" stop-opacity="0.96" />
+                  <stop offset="55%" stop-color="#111735" stop-opacity="0.96" />
+                  <stop offset="100%" stop-color="#24112c" stop-opacity="0.96" />
+                </linearGradient>
+                <filter id="softGlow">
+                  <feGaussianBlur stdDeviation="9" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <path class="fan-shadow" d="M72 184 C166 54 292 112 421 125 C546 138 639 22 760 78 C837 113 897 171 940 214 L865 302 C684 390 319 382 89 267 Z" />
+              <path class="fan-base" d="M72 176 C166 46 292 104 421 117 C546 130 639 14 760 70 C837 105 897 163 940 206 L865 294 C684 382 319 374 89 259 Z" />
+              <path class="fan-shine" d="M96 182 C218 96 353 133 464 137 C591 142 652 58 742 86 C817 109 858 152 910 198 L850 270 C675 330 330 326 118 238 Z" />
+
+              <path class="fan-arc" d="M94 178 C222 98 350 132 468 137 C595 142 656 60 746 88 C820 110 862 154 910 198" />
+              <path class="fan-arc lower" d="M102 248 C315 332 674 338 858 282" />
+
+              <g class="fan-lines">
+                <path d="M210 118 L238 309" />
+                <path d="M332 120 L355 342" />
+                <path d="M457 126 L466 358" />
+                <path d="M585 108 L575 358" />
+                <path d="M707 72 L686 337" />
+                <path d="M817 126 L790 304" />
+              </g>
+
+              <circle id="activeGlow" class="active-glow" cx="154" cy="215" r="62" />
+
+              <g class="fan-icons">
+                <text x="154" y="226">🍒</text>
+                <text x="286" y="236">🎨</text>
+                <text x="420" y="246">✦</text>
+                <text x="555" y="246">🎁</text>
+                <text x="695" y="232">🧵</text>
+                <text x="826" y="216">🌙</text>
+              </g>
+
+              <g class="fan-ornaments">
+                <text x="150" y="112">I</text>
+                <text x="285" y="112">II</text>
+                <text x="420" y="116">III</text>
+                <text x="555" y="112">IV</text>
+                <text x="696" y="90">V</text>
+                <text x="828" y="124">VI</text>
+              </g>
+
+              <g class="fan-hits" aria-hidden="true">
+                <rect class="fan-hit active" x="70" y="76" width="140" height="250" data-index="0" />
+                <rect class="fan-hit" x="215" y="76" width="140" height="270" data-index="1" />
+                <rect class="fan-hit" x="355" y="90" width="140" height="280" data-index="2" />
+                <rect class="fan-hit" x="495" y="88" width="140" height="280" data-index="3" />
+                <rect class="fan-hit" x="635" y="62" width="145" height="285" data-index="4" />
+                <rect class="fan-hit" x="780" y="96" width="150" height="230" data-index="5" />
+              </g>
+            </svg>
+
+            <button class="fan-arrow fan-next" type="button" aria-label="下一張牌">▷</button>
           </div>
 
           <div class="choice-panel">
@@ -69,23 +117,42 @@
         </div>
       </section>
     </main>
-    <footer class="footer">© Akane Commission Atelier｜Inverted fan game UI v7</footer>
+    <footer class="footer">© Akane Commission Atelier｜SVG inverted fan selector v8</footer>
   </div>
 
   <script>
-    const cards = [...document.querySelectorAll('.tarot-card')];
+    const choices = [
+      { title: 'QQ 系列', desc: '可愛小像、頭貼、表情與小型展示圖。', link: 'qq.html', x: 154, y: 215 },
+      { title: '色塊系列', desc: '單人立繪、雙人互動、角色氛圍展示。', link: 'color.html', x: 286, y: 236 },
+      { title: '亮晶晶系列', desc: '星空、寶石、玻璃感、藍紫色閃亮氛圍。', link: 'sparkle.html', x: 420, y: 246 },
+      { title: '驚喜包插圖', desc: '構圖與畫面交給我發揮，保留抽牌般的驚喜感。', link: 'surprise.html', x: 555, y: 246 },
+      { title: '服裝＆角色設計', desc: '服裝、配色、主題元素與簡易角色設計。', link: 'design.html', x: 695, y: 232 },
+      { title: '其他品項', desc: '自帶價、特殊需求、小物或其他延伸委託。', link: 'other.html', x: 826, y: 216 }
+    ];
+
+    const hits = [...document.querySelectorAll('.fan-hit')];
+    const glow = document.querySelector('#activeGlow');
     const title = document.querySelector('#choiceTitle');
     const desc = document.querySelector('#choiceDesc');
     const link = document.querySelector('#choiceLink');
+    const prev = document.querySelector('.fan-prev');
+    const next = document.querySelector('.fan-next');
+    let activeIndex = 0;
 
-    function selectCard(card) {
-      cards.forEach(item => item.classList.toggle('active', item === card));
-      title.textContent = card.dataset.title;
-      desc.textContent = card.dataset.desc;
-      link.href = card.dataset.link;
+    function selectCard(index) {
+      activeIndex = (index + choices.length) % choices.length;
+      const item = choices[activeIndex];
+      hits.forEach((hit, i) => hit.classList.toggle('active', i === activeIndex));
+      glow.setAttribute('cx', item.x);
+      glow.setAttribute('cy', item.y);
+      title.textContent = item.title;
+      desc.textContent = item.desc;
+      link.href = item.link;
     }
 
-    cards.forEach(card => card.addEventListener('click', () => selectCard(card)));
+    hits.forEach(hit => hit.addEventListener('click', () => selectCard(Number(hit.dataset.index))));
+    prev.addEventListener('click', () => selectCard(activeIndex - 1));
+    next.addEventListener('click', () => selectCard(activeIndex + 1));
   </script>
 </body>
 </html>
