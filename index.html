@@ -26,41 +26,66 @@
         <div class="moon">☾</div>
         <div class="ornament">✧ —— ✦ —— ✧</div>
         <h1>茜子的委託小屋</h1>
-        <p class="subtitle">塔羅師已經把牌攤開。請左右滑動，選擇一張最吸引你的牌，進入對應的委託品項。</p>
+        <p class="subtitle">像遊戲選擇畫面一樣，滑動牌列，選擇一張委託牌。</p>
 
-        <div class="table" aria-label="塔羅牌桌">
-          <div class="fan-viewport">
-            <div class="fan-track">
-              <a class="tarot-card" style="--x:40px;--y:42px;--r:-13deg;--z:1" href="qq.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA I</span><span class="symbol">🍒</span><span><span class="card-title">QQ</span><span class="card-sub">可愛小像 / 頭貼</span></span></span></span>
-              </a>
-              <a class="tarot-card" style="--x:260px;--y:72px;--r:-8deg;--z:2" href="color.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA II</span><span class="symbol">🎨</span><span><span class="card-title">色塊</span><span class="card-sub">立繪 / 雙人互動</span></span></span></span>
-              </a>
-              <a class="tarot-card" style="--x:480px;--y:92px;--r:-3deg;--z:3" href="sparkle.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA III</span><span class="symbol">✦</span><span><span class="card-title">亮晶晶</span><span class="card-sub">星空 / 寶石 / 氛圍</span></span></span></span>
-              </a>
-              <a class="tarot-card" style="--x:700px;--y:92px;--r:3deg;--z:4" href="surprise.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA IV</span><span class="symbol">🎁</span><span><span class="card-title">驚喜包</span><span class="card-sub">交給命運發揮</span></span></span></span>
-              </a>
-              <a class="tarot-card" style="--x:920px;--y:72px;--r:8deg;--z:5" href="design.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA V</span><span class="symbol">🧵</span><span><span class="card-title">服設</span><span class="card-sub">角色 / 服裝設計</span></span></span></span>
-              </a>
-              <a class="tarot-card" style="--x:1140px;--y:42px;--r:13deg;--z:6" href="other.html">
-                <span class="card-face"><span class="card-border"><span class="arcana">ARCANA VI</span><span class="symbol">🌙</span><span><span class="card-title">其他</span><span class="card-sub">自帶價 / 特殊需求</span></span></span></span>
-              </a>
+        <section class="game-select panel" aria-label="委託品項選擇畫面">
+          <div class="select-stage">
+            <div class="fan-viewport">
+              <div class="fan-track">
+                <button class="tarot-card active" type="button" style="--y:28px;--r:-10deg" data-title="QQ 系列" data-desc="可愛小像、頭貼、表情與小型展示圖。" data-link="qq.html" aria-label="選擇 QQ 系列">
+                  <span class="card-face"><span class="card-border"><span class="arcana">I</span><span class="symbol">🍒</span></span></span>
+                </button>
+                <button class="tarot-card" type="button" style="--y:54px;--r:-6deg" data-title="色塊系列" data-desc="單人立繪、雙人互動、角色氛圍展示。" data-link="color.html" aria-label="選擇 色塊系列">
+                  <span class="card-face"><span class="card-border"><span class="arcana">II</span><span class="symbol">🎨</span></span></span>
+                </button>
+                <button class="tarot-card" type="button" style="--y:74px;--r:-2deg" data-title="亮晶晶系列" data-desc="星空、寶石、玻璃感、藍紫色閃亮氛圍。" data-link="sparkle.html" aria-label="選擇 亮晶晶系列">
+                  <span class="card-face"><span class="card-border"><span class="arcana">III</span><span class="symbol">✦</span></span></span>
+                </button>
+                <button class="tarot-card" type="button" style="--y:74px;--r:2deg" data-title="驚喜包插圖" data-desc="構圖與畫面交給我發揮，保留抽牌般的驚喜感。" data-link="surprise.html" aria-label="選擇 驚喜包插圖">
+                  <span class="card-face"><span class="card-border"><span class="arcana">IV</span><span class="symbol">🎁</span></span></span>
+                </button>
+                <button class="tarot-card" type="button" style="--y:54px;--r:6deg" data-title="服裝＆角色設計" data-desc="服裝、配色、主題元素與簡易角色設計。" data-link="design.html" aria-label="選擇 服裝與角色設計">
+                  <span class="card-face"><span class="card-border"><span class="arcana">V</span><span class="symbol">🧵</span></span></span>
+                </button>
+                <button class="tarot-card" type="button" style="--y:28px;--r:10deg" data-title="其他品項" data-desc="自帶價、特殊需求、小物或其他延伸委託。" data-link="other.html" aria-label="選擇 其他品項">
+                  <span class="card-face"><span class="card-border"><span class="arcana">VI</span><span class="symbol">🌙</span></span></span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="choice-panel">
+            <p class="choice-label">SELECTED CARD</p>
+            <h2 id="choiceTitle">QQ 系列</h2>
+            <p id="choiceDesc">可愛小像、頭貼、表情與小型展示圖。</p>
+            <a class="btn primary" id="choiceLink" href="qq.html">查看此品項</a>
+          </div>
+        </section>
 
         <div class="quick-links">
-          <a class="btn primary" href="queue.html">查看排單表</a>
+          <a class="btn" href="queue.html">排單表</a>
           <a class="btn" href="gallery.html">作品畫廊</a>
           <a class="btn" href="rules.html">委託規則</a>
         </div>
       </section>
     </main>
-    <footer class="footer">© Akane Commission Atelier｜Tarot spaced fan prototype v5</footer>
+    <footer class="footer">© Akane Commission Atelier｜Game selection UI v6</footer>
   </div>
+
+  <script>
+    const cards = [...document.querySelectorAll('.tarot-card')];
+    const title = document.querySelector('#choiceTitle');
+    const desc = document.querySelector('#choiceDesc');
+    const link = document.querySelector('#choiceLink');
+
+    function selectCard(card) {
+      cards.forEach(item => item.classList.toggle('active', item === card));
+      title.textContent = card.dataset.title;
+      desc.textContent = card.dataset.desc;
+      link.href = card.dataset.link;
+    }
+
+    cards.forEach(card => card.addEventListener('click', () => selectCard(card)));
+  </script>
 </body>
 </html>
