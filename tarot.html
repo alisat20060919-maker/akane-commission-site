@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>占卜區｜茜子的委託小屋</title>
+<style>
+:root{--bg:#07081b;--panel:#10152e;--panel2:#241637;--gold:#d7b66c;--gold2:#f2dda0;--cream:#fff6df;--muted:#d9cda9;--line:#8d7448}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 0,#30204b 0,#111430 34%,#060717 74%);color:var(--cream);font-family:serif}.wrap{max-width:980px;margin:0 auto;padding:18px 14px 36px}.top{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:16px}.top a{color:var(--cream);text-decoration:none;border:1px solid var(--gold);border-radius:18px;background:#080818cc;padding:9px 13px;font-weight:800}.title{border:2px solid var(--gold);border-radius:24px;background:linear-gradient(180deg,#2e1d45,#0b0b21);padding:18px;text-align:center;box-shadow:0 18px 38px #0008}.title h1{margin:0 0 6px;font-size:28px;color:#fff0b4}.title p{margin:0;color:var(--muted);line-height:1.6}.layout{display:grid;grid-template-columns:1fr 1.1fr;gap:14px;margin-top:14px}.box{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#151936dd,#080918dd);box-shadow:0 16px 34px #0008;padding:16px}.box h2{margin:0 0 10px;color:#fff0b4;font-size:20px}.field{display:grid;gap:8px;margin:12px 0}.field label{color:#f4dfa1;font-weight:800}.field input,.field select{width:100%;border:1px solid #8d7448;border-radius:16px;background:#050716;color:var(--cream);padding:12px;font-size:16px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid #8d7448;border-radius:999px;background:#080818;color:var(--cream);padding:8px 10px;cursor:pointer}.chip.on{background:#efd98d;color:#151021;border-color:#fff0ac}.draw{width:100%;border:0;border-radius:18px;background:linear-gradient(180deg,#f8e8a8,#caa353);color:#14101d;padding:13px 16px;font-size:18px;font-weight:900;margin-top:10px;box-shadow:0 10px 22px #0009}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-height:248px}.card{position:relative;min-height:236px;border:2px solid var(--gold);border-radius:18px;background:linear-gradient(180deg,#111735,#060817);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:14px;box-shadow:0 16px 26px #0008;overflow:hidden}.card:before{content:"";position:absolute;inset:10px;border:1px solid #d7b66c99;border-radius:14px}.card .num{font-size:13px;color:#f3d98d;letter-spacing:.12em}.card .sigil{font-size:34px;margin:10px 0;color:#ffe7a3;text-shadow:0 0 12px #f7d47966}.card b{font-size:18px;color:#fff0b4}.card small{color:#d8cba8;line-height:1.5}.rev{transform:rotate(180deg)}.rev>*{transform:rotate(180deg)}.result{margin-top:14px}.reading{border:1px solid #8d7448;border-radius:20px;background:#080818aa;padding:14px;margin:10px 0;line-height:1.75}.reading b{color:#fff0b4}.rec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.item{border:1px solid var(--gold);border-radius:20px;background:linear-gradient(180deg,#2d1e43,#0a0b20);padding:14px;text-decoration:none;color:var(--cream)}.item strong{display:block;color:#fff0b4;font-size:18px;margin-bottom:5px}.item span{color:#d8cba8;line-height:1.55}.notice{color:#d8cba8;font-size:14px;line-height:1.6;margin-top:10px}.hidden{display:none}@media(max-width:780px){.layout{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.card{min-height:190px}.rec{grid-template-columns:1fr}.top a{font-size:13px}.title h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="index.html">✦ 回首頁</a><a href="hall.html?v=36000">塔羅畫廊</a><a href="rules.html">委託規則</a></div>
+  <section class="title"><h1>星月占卜區</h1><p>抽一張或三張塔羅，看看今天適合委託什麼品項。<br>這是創作靈感占卜，不是嚴肅命運判定。</p></section>
+  <div class="layout">
+    <section class="box">
+      <h2>占卜設定</h2>
+      <div class="field"><label>想問什麼？</label><input id="question" placeholder="例：我現在適合委什麼？"></div>
+      <div class="field"><label>抽牌方式</label><select id="spread"><option value="1">一張指引</option><option value="3">三張：現在・阻礙・建議</option></select></div>
+      <div class="field"><label>現在的感覺</label><div class="chips" id="moods"><button class="chip on" data-mood="迷惘">迷惘</button><button class="chip" data-mood="想可愛">想可愛</button><button class="chip" data-mood="想華麗">想華麗</button><button class="chip" data-mood="想整理設定">想整理設定</button><button class="chip" data-mood="想要驚喜">想要驚喜</button></div></div>
+      <button class="draw" id="draw">洗牌占卜 ✦</button>
+      <p class="notice">底部會依照抽到的牌，推薦比較適合的委託品項。</p>
+    </section>
+    <section class="box">
+      <h2>抽牌結果</h2>
+      <div class="cards" id="cards"><div class="card"><div class="num">AKANE TAROT</div><div class="sigil">☾</div><b>等待洗牌</b><small>按下左側按鈕開始占卜</small></div></div>
+      <div class="result hidden" id="result"><div id="readings"></div><h2>適合委託</h2><div class="rec" id="rec"></div></div>
+    </section>
+  </div>
+</div>
+<script>
+const cards=[
+['愚者','新的開始、嘗試、自由','不要想太多，先選一個能讓你開心的小品項。','QQ','適合可愛、輕鬆、低壓的委託。'],
+['魔術師','靈感、創造、主動','你已經有素材了，適合把想法變成完整形象。','服裝角色','適合角色設計、服裝設計、小動物訂製。'],
+['女祭司','直覺、祕密、沉澱','適合做帶有氛圍與內在故事的作品。','插圖','適合故事感插圖、夢幻構圖、情緒畫面。'],
+['皇后','可愛、豐盛、療癒','現在適合柔軟、甜美、亮晶晶的方向。','亮晶晶','適合郵票、票根、唱片、小軟糖風格。'],
+['皇帝','秩序、架構、確認','適合先把規格定清楚，再做穩定成品。','色塊','適合清楚角色展示、立繪、雙人互動。'],
+['教皇','規則、委託、流程','先看規則和排單，照流程會最順。','委託規則','適合先讀規則、準備資料再下單。'],
+['戀人','關係、互動、選擇','你適合委雙人或有關係性的畫面。','色塊','適合雙人互動、CP、主從或朋友關係。'],
+['戰車','推進、完成、行動','別拖太久，適合選一個明確品項直接出發。','QQ','適合快速成形的小品項。'],
+['力量','溫柔、陪伴、可愛獸感','適合毛茸茸、甜甜、柔軟的角色氛圍。','QQ','適合小動物、Q版、可愛驚喜。'],
+['隱者','沉澱、研究、設定','適合整理世界觀或角色設定。','服裝角色','適合角色設定、服裝設定、設計稿。'],
+['命運之輪','驚喜、轉機、抽選','交給直覺，適合驚喜包。','插圖','適合驚喜包、隨機構圖、意外加碼感。'],
+['正義','平衡、條件、確認','適合選規格清楚、成果穩定的委託。','色塊','適合乾淨立繪、清楚展示。'],
+['吊人','等待、換角度、慢工','適合不趕工、交給作者慢慢發揮。','插圖','適合無工期、氛圍型作品。'],
+['死神','轉換、重塑、畢業','適合重設角色形象或舊圖翻新概念。','服裝角色','適合重設計、換裝、形象整理。'],
+['節制','調和、配色、修飾','適合亮晶晶和色彩整合的品項。','亮晶晶','適合票根、郵票、柔和配色裝飾。'],
+['惡魔','慾望、華麗、執著','適合更濃烈、更有吸引力的畫面。','插圖','適合華麗、暗色、情緒濃的插圖。'],
+['塔','突破、重來、爆發','適合做驚喜感強、構圖比較自由的委託。','插圖','適合驚喜包或強烈氛圍作品。'],
+['星星','希望、閃耀、療癒','現在很適合亮晶晶。','亮晶晶','適合星空、閃亮、夢幻小物。'],
+['月亮','夢境、朦朧、幻想','適合神祕、童話、夜色感。','插圖','適合夢幻插圖、夜晚氛圍。'],
+['太陽','快樂、明亮、可愛','適合明亮可愛的品項。','QQ','適合Q版、大頭、甜甜小物。'],
+['審判','重新整理、發表、宣告','適合把角色資料重新做成正式展示。','服裝角色','適合角色設計、設定整合。'],
+['世界','完成、展示、收藏','適合做一張能放進畫廊展示的完整作品。','色塊','適合正式立繪、完整展示。']
+];
+const roomLinks={QQ:'hall.html?v=36000',色塊:'hall.html?v=36000',亮晶晶:'hall.html?v=36000',插圖:'hall.html?v=36000',服裝角色:'hall.html?v=36000',委託規則:'rules.html'};
+let mood='迷惘';document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');mood=b.dataset.mood});
+function pick(n){let arr=[...cards].sort(()=>Math.random()-.5);return arr.slice(0,n).map(c=>({c,rev:Math.random()<.28}))}
+function makeCard(o,i,n){let label=n===3?['現在','阻礙','建議'][i]:'今日指引';return `<div class="card ${o.rev?'rev':''}"><div class="num">${label}</div><div class="sigil">✦</div><b>${o.c[0]}${o.rev?' 逆位':''}</b><small>${o.rev?'需要放慢或反向理解':'正位指引'}</small></div>`}
+function recommend(draws){let score={QQ:0,色塊:0,亮晶晶:0,插圖:0,服裝角色:0,委託規則:0};draws.forEach(o=>score[o.c[3]]+=o.rev?1:2);if(mood==='想可愛')score.QQ+=2;if(mood==='想華麗')score.亮晶晶+=2,score.插圖+=1;if(mood==='想整理設定')score.服裝角色+=2;if(mood==='想要驚喜')score.插圖+=2;return Object.entries(score).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>k)}
+function draw(){let n=+document.getElementById('spread').value, q=document.getElementById('question').value.trim();let ds=pick(n);document.getElementById('cards').innerHTML=ds.map((o,i)=>makeCard(o,i,n)).join('');document.getElementById('readings').innerHTML=ds.map((o,i)=>`<div class="reading"><b>${n===3?['現在','阻礙','建議'][i]:'指引'}｜${o.c[0]}${o.rev?'逆位':''}</b><br>${o.c[1]}。${o.rev?'這張牌提醒你不要急著硬衝，先把需求收斂。':o.c[2]}</div>`).join('')+`<div class="reading"><b>你的問題</b><br>${q||'今天我適合委託什麼？'}<br><b>目前感覺</b>：${mood}</div>`;let rec=recommend(ds);document.getElementById('rec').innerHTML=rec.map(k=>{let found=cards.find(c=>c[3]===k);let text=found?found[4]:'先看規則與排單。';return `<a class="item" href="${roomLinks[k]||'hall.html?v=36000'}"><strong>${k}</strong><span>${text}</span></a>`}).join('');document.getElementById('result').classList.remove('hidden')}
+document.getElementById('draw').onclick=draw;
+</script>
+</body></html>
